@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="assets/ig-post-1.png" data-resource-id="igPost1">
+<meta name="ext-resource-dependency" content="assets/ig-post-2.png" data-resource-id="igPost2">
+<meta name="ext-resource-dependency" content="assets/ig-post-3.png" data-resource-id="igPost3">
+<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=480&h=600&fit=crop" data-resource-id="ttCover1">
+<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=480&h=600&fit=crop" data-resource-id="ttCover2">
+<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=480&h=600&fit=crop" data-resource-id="ttCover3">
+<meta name="ext-resource-dependency" content="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=480&h=600&fit=crop" data-resource-id="ttCover4">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#E9EDF1"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect x="380" y="220" width="200" height="260" rx="20" fill="#1263D3"/><rect x="620" y="220" width="200" height="260" rx="20" fill="#2C303C"/><rect x="380" y="520" width="440" height="40" rx="8" fill="#CE2927"/></svg></template>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/base.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/styles.css">
+  <script src="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/_ds_bundle.js"></script>
+  <style>body{margin:0;background:#E9EDF1;color:#2C303C;font-family:Roboto,sans-serif}a{color:#1263D3;text-decoration:none}a:hover{color:#0C489B;text-decoration:none}</style>
+</helmet>
+<div style="padding:64px;display:flex;flex-direction:column;gap:64px;width:max-content">
+
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:900px">
+    <span style="font:600 13px Montserrat,sans-serif;letter-spacing:.08em;color:#1263D3">BC-5787 · DEV HANDOFF</span>
+    <h1 style="margin:0;font:600 40px/1.15 Montserrat,sans-serif">School socials: Instagram + TikTok, stacked</h1>
+    <p style="margin:0;font:400 17px/1.55 Roboto,sans-serif;text-wrap:pretty">College profile, Campus Life tab. The existing Instagram component keeps its slot below Campus Life. When a school connects TikTok, the same component renders a second time for TikTok directly below Instagram. Pink bars mark spacing in px.</p>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;font:400 14px Roboto,sans-serif;color:#515767;margin-top:4px">
+      <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:12px;background:rgba(206,41,39,.14);border:1px solid #CE2927"></span>Spacing (px)</span>
+      
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:24px">
+    
+    <div style="display:flex;gap:64px;align-items:flex-start">
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:600 15px Montserrat,sans-serif">Desktop · 1180px container</span>
+        <div style="width: 828px; background: #fff; border: 1px solid #D3D7DC; border-radius: 8px; box-sizing: border-box; padding: 40px 24px; display: flex; gap: 56px; align-items: flex-start">
+          <main style="flex:0 0 776px;min-width:0;display:flex;flex-direction:column">
+            <div style="display:flex;flex-direction:column;gap:16px;opacity:.45">
+              <span style="font:600 34px Montserrat,sans-serif">Campus Life</span>
+              <div style="height:80px;border:1px solid #D3D7DC;border-radius:8px;background:#F4F7F9"></div>
+              <span style="font:500 16px Roboto,sans-serif;color:#1263D3">See Full Campus Life Details »</span>
+            </div>
+            <div style="height:64px;background:rgba(206,41,39,.08);border-top:1px dashed #CE2927;border-bottom:1px dashed #CE2927;display:flex;align-items:center;justify-content:center;font:600 12px Roboto,sans-serif;color:#CE2927">64</div>
+            <div style="position:relative">
+              
+              <dc-import name="SocialFeed" networks="Instagram only" hint-size="100%,560px"></dc-import>
+            </div>
+            <div style="height:32px;background:rgba(206,41,39,.08);border-top:1px dashed #CE2927;display:flex;align-items:center;justify-content:center;font:600 12px Roboto,sans-serif;color:#CE2927">32</div>
+            <div style="position:relative;height:1px;background:#D3D7DC">
+              
+            </div>
+            
+            <div style="position:relative">
+              
+              <dc-import name="SocialFeed" networks="TikTok only" hint-size="100%,560px"></dc-import>
+            </div>
+            <div style="height:64px;background:rgba(206,41,39,.08);border-top:1px dashed #CE2927;border-bottom:1px dashed #CE2927;display:flex;align-items:center;justify-content:center;font:600 12px Roboto,sans-serif;color:#CE2927">64</div>
+            <span style="font:600 34px Montserrat,sans-serif;opacity:.45">After College</span>
+          </main>
+          
+        </div>
+        <div style="display:flex;gap:32px;font:400 13px Roboto,sans-serif;color:#515767">
+          <span>Main column 776px · gutter 56px · rail 300px</span>
+          <span>Card grid: 3 × minmax(0,1fr), gap 16px</span>
+          <span>Header → cards gap 20px</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:600 15px Montserrat,sans-serif">Mobile · 375px</span>
+        <div style="width:375px;background:#fff;border:1px solid #D3D7DC;border-radius:24px;box-sizing:border-box;padding:24px 16px 32px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="display:flex;flex-direction:column;gap:12px;opacity:.45">
+            <span style="font:600 26px Montserrat,sans-serif">Campus Life</span>
+            <div style="height:56px;border:1px solid #D3D7DC;border-radius:8px;background:#F4F7F9"></div>
+          </div>
+          <div style="height:48px;background:rgba(206,41,39,.08);border-top:1px dashed #CE2927;border-bottom:1px dashed #CE2927;display:flex;align-items:center;justify-content:center;font:600 12px Roboto,sans-serif;color:#CE2927">48</div>
+          <dc-import name="SocialFeed" networks="Instagram only" mobile="{{ true }}" hint-size="100%,500px"></dc-import>
+          
+          <div style="height:1px;background:#D3D7DC"></div>
+          <div style="height:24px;background:rgba(206,41,39,.08);border-bottom:1px dashed #CE2927;display:flex;align-items:center;justify-content:center;font:600 12px Roboto,sans-serif;color:#CE2927">24</div>
+          <dc-import name="SocialFeed" networks="TikTok only" mobile="{{ true }}" hint-size="100%,500px"></dc-import>
+          <div style="height:48px;background:rgba(206,41,39,.08);border-top:1px dashed #CE2927;border-bottom:1px dashed #CE2927;display:flex;align-items:center;justify-content:center;font:600 12px Roboto,sans-serif;color:#CE2927">48</div>
+          <span style="font:600 26px Montserrat,sans-serif;opacity:.45">After College</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;font:400 13px/1.5 Roboto,sans-serif;color:#515767;width:375px">
+          <span>Side padding 16px · card width 80% · card gap 12px</span>
+          <span>Carousel bleeds to screen edge; scroll-snap start</span>
+          <span>Header → carousel 16px · carousel → dots 20px</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div style="display:flex;gap:64px;align-items:flex-start">
+    
+
+    <div style="width:560px;display:flex;flex-direction:column;gap:32px">
+      
+      
+      
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      singles: [
+        { label: 'Instagram only', networks: 'Instagram only' },
+        { label: 'TikTok only', networks: 'TikTok only' }
+      ],
+      specs: [
+        { n: '1', k: 'Order', ig: 'First, existing slot after Campus Life', tt: 'Second, directly below Instagram' },
+        { n: '2', k: 'Divider', ig: '1px #D3D7DC (gray15), full main-column width. 32px above and below on desktop, 24px on mobile. Rendered only when both are shown.', tt: '' },
+        { n: '3', k: 'Component', ig: 'Shared social feed component', tt: 'Same component, network = tiktok' },
+        { n: '', k: 'Header (desktop)', ig: 'Logo 72px · avatar 64px circle, 1px gray15 · handle Montserrat 600 15px · name Roboto 14px gray50 · Follow button (secondary, medium)', tt: 'Same; TikTok logo 72px' },
+        { n: '', k: 'Header (mobile)', ig: 'Logo 40px · avatar 40px · handle Montserrat 600 14px, ellipsis · Follow button (secondary, small)', tt: 'Same; TikTok logo 40px' },
+        { n: '', k: 'Card', ig: 'Radius 8px, 1px gray15 border, white, no shadow', tt: 'Same' },
+        { n: '', k: 'Media ratio', ig: '4:5, object-fit: cover', tt: '4:5 crop of 9:16 cover, object-fit: cover' },
+        { n: '', k: 'Overlay', ig: 'None', tt: 'Play icon + view count, bottom-left 12px; Roboto 500 12px white on rgba(44,48,60,.8), radius 4px' },
+        { n: '', k: 'Caption', ig: 'Roboto 15px/1.5 desktop, 14px mobile; 2-line clamp', tt: 'Same; source caption up to 150 characters' },
+        { n: '', k: 'Meta row', ig: 'Relative date, Roboto 13px gray50 + Instagram icon 20px', tt: 'Relative date + TikTok icon' },
+        { n: '', k: 'Posts shown', ig: '3 most recent', tt: '3 most recent' },
+        { n: '', k: 'Click target', ig: 'Whole card opens post, new tab', tt: 'Whole card opens share_url, new tab' },
+        { n: '', k: 'Hover (desktop)', ig: 'Image scale 1.02, 150ms ease', tt: 'Same' },
+        { n: '', k: 'Mobile carousel', ig: 'Card 80% width, gap 12px, scroll-snap start, dots 8px (active blue50, rest gray15)', tt: 'Same' },
+        { n: '', k: 'Media source', ig: 'CDN permanent URL', tt: 'cover_image_url via Display API, refreshed server-side (URLs expire)' },
+        { n: '', k: 'GA category', ig: 'school_instagram', tt: 'school_tiktok' },
+        { n: '', k: 'GA actions', ig: 'follow, card-1 to card-3', tt: 'follow, card-1 to card-3' }
+      ],
+      logic: [
+        { k: 'Both connected', v: 'Instagram, divider, TikTok.' },
+        { k: 'One connected', v: 'That network alone in the slot. No divider.' },
+        { k: 'Hide a network when', v: 'Fewer than 3 posts, expired token or API error. The other network still renders, without the divider.' },
+        { k: 'Neither available', v: 'Section not rendered. After College follows Campus Life with the standard 64px gap.' }
+      ],
+      a11y: [
+        'Each block is a region labelled by its network, e.g. "Grinnell College on TikTok".',
+        'Card link aria-label: "Open Instagram post: {caption}" / "Watch on TikTok: {caption}".',
+        'Follow button aria-label includes network and handle.',
+        'Cover images are decorative (alt="") since the caption is in the link label.',
+        'Mobile dots are aria-hidden; carousel is keyboard scrollable and cards are focusable in order.',
+        'Visible 3px blue50 focus ring on cards and buttons (design system default).'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

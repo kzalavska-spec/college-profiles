@@ -1,0 +1,27 @@
+/* U.S. News & World Report — Typography Tokens
+   Montserrat for headings/impact; Roboto for body/links. */
+
+:root {
+  --font-heading: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Weights */
+  --fw-regular: 400;   /* @kind font */
+  --fw-medium: 500;    /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+
+  /* ---- Heading scale (Montserrat, 600) ---- */
+  --h1-size: 2.625rem;  --h1-line: 3rem;      /* 42 / 48 */
+  --h2-size: 2rem;      --h2-line: 2.5rem;    /* 32 / 40 */
+  --h3-size: 1.5rem;    --h3-line: 2rem;      /* 24 / 32 */
+  --h4-size: 1.125rem;  --h4-line: 1.5rem;    /* 18 / 24 */
+  --h5-size: 1rem;      --h5-line: 1.25rem;   /* 16 / 20 */
+  --h6-size: 0.875rem;  --h6-line: 1.125rem;  /* 14 / 18 */
+
+  /* ---- Body scale (Roboto) ---- */
+  --body1-size: 1.125rem; --body1-line: 1.625rem;  /* 18 / 26  (Para 0) */
+  --body2-size: 1rem;     --body2-line: 1.5rem;    /* 16 / 24  (Para 1) */
+  --caption-size: 0.75rem; --caption-line: 1rem;   /* 12 / 16  (Disclaimer, italic) */
+  --overline-size: 0.75rem; --overline-line: 1rem; /* 12 / 16  (Kicker, uppercase) */
+  --overline-tracking: 0.08em;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/base.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/styles.css">
+  <script src="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/_ds_bundle.js"></script>
+  <style>body{margin:0;background:#fff;color:#2C303C;font-family:Roboto,sans-serif}a{color:#1263D3;text-decoration:none}a:hover{color:#0C489B;text-decoration:none}</style>
+</helmet>
+<div style="max-width:1180px;margin:0 auto;padding:48px 24px 80px;display:flex;flex-direction:column;gap:64px">
+
+  <header style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+    <span style="font:600 13px Montserrat,sans-serif;letter-spacing:.08em;color:#1263D3">APPLICATION DEADLINES · DATA COVERAGE v2</span>
+    <h1 style="margin:0;font:600 34px/1.2 Montserrat,sans-serif">Most profiles show one deadline or none</h1>
+    <p style="margin:0;font:400 18px/1.55 Roboto,sans-serif;text-wrap:pretty">Database counts across 1,700 college profiles. Each school is in one group; "rolling" counts as an application deadline.</p>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:24px">
+    <h2 style="margin:0;font:600 24px Montserrat,sans-serif">Distribution</h2>
+    <div style="display:flex;height:40px;border-radius:4px;overflow:hidden;border:1px solid #D3D7DC">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="6">
+        <div style="flex:{{ g.pct }} 0 0;background:{{ g.color }};border-right:1px solid #fff;display:flex;align-items:center;justify-content:center;font:600 12px Montserrat,sans-serif;color:{{ g.ink }};overflow:hidden;white-space:nowrap">{{ g.barLabel }}</div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #D3D7DC">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:16px minmax(0,1fr) 64px 72px;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid #D3D7DC">
+          <span style="width:12px;height:12px;border-radius:2px;background:{{ g.color }};border:1px solid #D3D7DC"></span>
+          <span style="font:400 16px Roboto,sans-serif">{{ g.name }}</span>
+          <span style="font:400 14px Roboto,sans-serif;color:#515767;text-align:right">{{ g.n }}</span>
+          <span style="font:600 16px Montserrat,sans-serif;text-align:right">{{ g.pctLabel }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+      <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+        <div style="border:1px solid #D3D7DC;border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:6px">
+          <span style="font:600 30px Montserrat,sans-serif">{{ f.v }}</span>
+          <span style="font:400 14px/1.5 Roboto,sans-serif;color:#515767">{{ f.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+    <h2 style="margin:0;font:600 24px Montserrat,sans-serif">What changes</h2>
+    <ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:12px;font:400 16px/1.55 Roboto,sans-serif">
+      <sc-for list="{{ findings }}" as="f" hint-placeholder-count="5"><li><strong style="font-weight:500">{{ f.t }}</strong> {{ f.d }}</li></sc-for>
+    </ol>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:8px;max-width:760px">
+      <h2 style="margin:0;font:600 24px Montserrat,sans-serif">Proposed rule: layout follows the number of dates</h2>
+      <p style="margin:0;font:400 16px/1.55 Roboto,sans-serif;color:#515767;text-wrap:pretty">With 0 or 1 date (74.9% of profiles, incl. early-only), both variants use the same compact strip above the stats. The variant-specific table only renders with 2+ dates (25.0%). Variant 1's side column no longer appears in cases where it would leave empty space.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:48px">
+      <sc-for list="{{ states }}" as="s" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+            <span style="font:600 16px Montserrat,sans-serif">{{ s.label }}</span>
+            <span style="font:400 14px Roboto,sans-serif;color:#515767">{{ s.share }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px">
+            <sc-for list="{{ s.frames }}" as="fr" hint-placeholder-count="2">
+              <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                <span style="font:500 13px Roboto,sans-serif;color:#515767">{{ fr.name }}</span>
+                <div style="border:1px dashed #D3D7DC;border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px">
+                  <span style="font:600 18px Montserrat,sans-serif">Admissions</span>
+
+                  <sc-if value="{{ s.isNone }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:400 15px/1.5 Roboto,sans-serif;padding-bottom:12px;border-bottom:1px solid #D3D7DC">
+                      <span>Application deadlines not reported.</span><a href="#" style="font-weight:500">Check the admissions website</a>
+                    </div>
+                  </sc-if>
+
+                  <sc-if value="{{ s.isStrip }}" hint-placeholder-val="{{ false }}">
+                    <div style="background:#F4F7F9;border-radius:8px;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center">
+                      <div style="display:flex;flex-direction:column;gap:4px">
+                        <span style="font:600 15px Montserrat,sans-serif">{{ s.strip.type }}</span>
+                        <span style="font:400 13px/1.4 Roboto,sans-serif;color:#515767">{{ s.strip.sub }}</span>
+                      </div>
+                      <div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end;text-align:right">
+                        <span style="font:600 20px Montserrat,sans-serif;white-space:nowrap">{{ s.strip.date }}</span>
+                        <span style="font:400 12px Roboto,sans-serif;color:#515767">{{ s.strip.countdown }}</span>
+                      </div>
+                    </div>
+                  </sc-if>
+
+                  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+                    <sc-if value="{{ fr.side }}" hint-placeholder-val="{{ false }}">
+                      <div style="flex:1 1 220px;min-width:0;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden">
+                        <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="2">
+                          <div style="padding:12px 14px;background:{{ r.bg }};border-bottom:1px solid #D3D7DC;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center">
+                            <span style="font:600 14px/1.3 Montserrat,sans-serif">{{ r.type }}</span>
+                            <div style="display:flex;flex-direction:column;align-items:flex-end;text-align:right">
+                              <span style="font:600 15px Montserrat,sans-serif;white-space:nowrap">{{ r.date }}</span>
+                              <span style="font:400 12px Roboto,sans-serif;color:#515767">{{ r.countdown }}</span>
+                            </div>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ fr.top }}" hint-placeholder-val="{{ false }}">
+                      <div style="flex:1 1 100%;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden">
+                        <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="2">
+                          <div style="padding:12px 16px;background:{{ r.bg }};border-bottom:1px solid #D3D7DC;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center">
+                            <div style="display:flex;flex-direction:column;gap:2px">
+                              <span style="font:600 14px/1.3 Montserrat,sans-serif">{{ r.type }}</span>
+                              <span style="font:400 13px Roboto,sans-serif;color:#515767">{{ r.sub }}</span>
+                            </div>
+                            <div style="display:flex;flex-direction:column;align-items:flex-end;text-align:right">
+                              <span style="font:600 16px Montserrat,sans-serif;white-space:nowrap">{{ r.date }}</span>
+                              <span style="font:400 12px Roboto,sans-serif;color:#515767">{{ r.countdown }}</span>
+                            </div>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <div style="flex:1 1 180px;display:flex;flex-direction:column;gap:12px;padding:4px 0">
+                      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="3">
+                        <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:1px solid #D3D7DC">
+                          <span style="font:400 14px Roboto,sans-serif;color:#515767">{{ st.k }}</span>
+                          <span style="font:600 15px Montserrat,sans-serif">{{ st.v }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <span style="font:400 14px/1.5 Roboto,sans-serif;max-width:760px">{{ s.note }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:0;font:italic 400 12px/1.4 Roboto,sans-serif;color:#515767">Frames are simplified; stats values are illustrative. Copy, chips and the "What's the difference?" link carry over from the current variants.</p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+    <h2 style="margin:0;font:600 24px Montserrat,sans-serif">Recommendation</h2>
+    <p style="margin:0;font:400 16px/1.55 Roboto,sans-serif;text-wrap:pretty">We recommend Variant 2. In Variant 2 the deadlines sit above the stats, so the section looks complete whether a school has three dates, one, or none. In Variant 1 the deadlines sit next to the stats, and since 3 in 4 profiles have one date or none, that side would usually look half empty. Variant 1 can work, but only with extra rules for those cases.</p>
+    <h3 style="margin:16px 0 0;font:600 18px Montserrat,sans-serif">Still open</h3>
+    <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font:400 16px/1.55 Roboto,sans-serif">
+      <sc-for list="{{ questions }}" as="q" hint-placeholder-count="3"><li>{{ q }}</li></sc-for>
+    </ul>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const F = { type: 'Application Deadline', sub: 'Regular decision', date: 'Jan. 15, 2027', countdown: '88 days left', bg: '#F4F7F9' };
+    const R = { type: 'Application Deadline', sub: 'Applications reviewed as they arrive', date: 'Rolling', countdown: 'No fixed date', bg: '#F4F7F9' };
+    const EA = { type: 'Early Action', sub: 'Non-binding', date: 'Nov. 1, 2026', countdown: '13 days left', bg: '#fff' };
+    const ED = { type: 'Early Decision', sub: 'Binding', date: 'Nov. 15, 2026', countdown: '27 days left', bg: '#fff' };
+    const compact = [{ name: 'Variant 1 and Variant 2 (same)', side: false, top: false }];
+    const both = [{ name: 'Variant 1 · side column', side: true, top: false }, { name: 'Variant 2 · full width', side: false, top: true }];
+    const mk = (o) => Object.assign({ isNone: false, isStrip: false, rows: [], strip: {} }, o);
+    return {
+      groups: [
+        { name: 'No dates', n: '670', pct: 39.4, pctLabel: '39.4%', barLabel: 'None 39%', color: '#E6EAEE', ink: '#2C303C' },
+        { name: 'Application deadline only', n: '583', pct: 34.3, pctLabel: '34.3%', barLabel: 'Final only 34%', color: '#8DB4EA', ink: '#2C303C' },
+        { name: 'Application deadline + early action', n: '223', pct: 13.1, pctLabel: '13.1%', barLabel: '+EA 13%', color: '#1263D3', ink: '#fff' },
+        { name: 'All three dates', n: '131', pct: 7.7, pctLabel: '7.7%', barLabel: '3 dates', color: '#0C489B', ink: '#fff' },
+        { name: 'Application deadline + early decision', n: '72', pct: 4.2, pctLabel: '4.2%', barLabel: '', color: '#358CE7', ink: '#fff' },
+        { name: 'Early date, no application deadline', n: '21', pct: 1.2, pctLabel: '1.2%', barLabel: '', color: '#515767', ink: '#fff' }
+      ],
+      facts: [
+        { v: '73.7%', d: 'of profiles have one date or none (1,253).' },
+        { v: '25.0%', d: 'have two or more dates (426). Only these need a multi-row table.' },
+        { v: '25.1%', d: 'list the application deadline as "Rolling" (427). These need a non-date treatment with no countdown.' },
+        { v: '58.0%', d: 'have no calendar date at all once rolling is excluded.' }
+      ],
+      findings: [
+        { t: '"No dates" is the largest group.', d: 'At 39.4% it is the default view, so it should be one quiet line rather than a gray fallback card.' },
+        { t: 'The full three-date table appears on 7.7% of profiles.', d: 'Grinnell-style layouts are the exception. Design review should start from the empty and single-date states.' },
+        { t: 'Rolling is a value, not missing data.', d: 'Show "Rolling" in the date slot with a short explanation, no countdown and no "Final deadline" chip.' },
+        { t: 'Early action is three times more common than early decision.', d: 'Final + EA (13.1%) is the most common multi-date case; the 2-row table is the one to optimize.' },
+        { t: '21 profiles have an early date but no application deadline.', d: 'The module needs to render early rows without a final row instead of assuming the final row exists.' }
+      ],
+      stats: [{ k: 'Acceptance rate', v: '11%' }, { k: 'SAT range', v: '1400–1530' }, { k: 'ACT range', v: '31–34' }],
+      states: [
+        mk({ label: 'No dates', share: '39.4% · 670 profiles', isNone: true, frames: compact,
+          note: 'One line with a link to the school\'s site. No gray card, no empty table. Stats use the full width.' }),
+        mk({ label: 'Application deadline only · calendar date', share: '34.3% incl. rolling · 583 profiles', isStrip: true, strip: F, frames: compact,
+          note: 'Single strip above the stats. "Final deadline" chip removed since there is nothing to contrast it with.' }),
+        mk({ label: 'Application deadline only · rolling', share: 'Subset of the 34.3% and other groups · 427 rolling overall', isStrip: true, strip: R, frames: compact,
+          note: '"Rolling" sits in the date slot; the countdown is replaced by "No fixed date".' }),
+        mk({ label: 'Early date only', share: '1.2% · 21 profiles', isStrip: true, strip: Object.assign({}, EA, { type: 'Early Action Deadline', sub: 'Non-binding · regular deadline not reported' }), frames: compact,
+          note: 'Uses the strip with the early row. Sub-line states that the regular deadline is not reported.' }),
+        mk({ label: 'Application deadline + one early date', share: '17.3% · 295 profiles (EA 223, ED 72)', rows: [EA, F], frames: both,
+          note: 'Most common multi-date case. Variant 1 keeps the side column here because two rows roughly match the stats height.' }),
+        mk({ label: 'All three dates', share: '7.7% · 131 profiles', rows: [EA, ED, F], frames: both,
+          note: 'Unchanged from current designs. If the application deadline is rolling, its row uses the rolling treatment.' })
+      ],
+      questions: [
+        'How often is rolling combined with early dates? This decides how often a "Rolling" row appears inside the table.',
+        'For the 670 profiles with no dates, do we have an admissions website URL to link to?',
+        'Do the counts include any dates from past cycles? If so we need a rule for hiding expired countdowns.'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* U.S. News & World Report — Spacing & Shape Tokens
+   Atlas 8pt grid. spacing(n) = n * 8px. */
+
+:root {
+  --space-0_5: 4px;   /* spacing(0.5) */
+  --space-1: 8px;     /* spacing(1)   */
+  --space-2: 16px;    /* spacing(2) — standard padding/grouping */
+  --space-3: 24px;    /* spacing(3)   */
+  --space-4: 32px;    /* spacing(4) — lower-level header separation */
+  --space-6: 48px;    /* spacing(6)   */
+  --space-8: 64px;    /* spacing(8) — major section separation */
+  --space-16: 128px;  /* spacing(16)  */
+
+  /* ---- Shape / corner radii ---- */
+  --radius-1: 4px;   /* BorderRadius  — non-interactive: containers, static tags/chips */
+  --radius-2: 8px;   /* BorderRadius2 — cards, dialogs, interactive surfaces */
+  --radius-3: 16px;  /* BorderRadius3 — buttons, rounded inputs */
+
+  /* ---- Elevation (minimal visual noise) ---- */
+  --shadow-none: none;
+  --shadow-1: 0 1px 2px rgba(44, 48, 60, 0.08);
+  --shadow-2: 0 4px 12px rgba(44, 48, 60, 0.10);
+  --shadow-focus: 0 0 0 3px rgba(18, 99, 211, 0.35);
+}

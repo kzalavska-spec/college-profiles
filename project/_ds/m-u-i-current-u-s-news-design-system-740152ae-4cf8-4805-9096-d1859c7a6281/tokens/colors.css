@@ -1,0 +1,50 @@
+/* U.S. News & World Report — Color Tokens
+   Extracted from the U.S. News Brandbook / MUI theme palette. */
+
+:root {
+  /* ---- Base palette (internal names) ---- */
+  --usn-blue50: #1263D3;   /* primary */
+  --usn-blue30: #358CE7;   /* info */
+  --usn-red50:  #CE2927;   /* secondary */
+  --usn-red70:  #B92523;   /* error */
+  --usn-green50: #248880;  /* success */
+  --usn-green70: #068448;  /* metrics (good) */
+  --usn-orange70: #E89A00; /* warning */
+
+  --usn-white00: #FFFFFF;
+  --usn-gray05: #F4F7F9;
+  --usn-gray15: #D3D7DC;
+  --usn-gray50: #515767;
+  --usn-black80: #2C303C;
+
+  /* ---- Semantic aliases (MUI palette roles) ---- */
+  --color-primary: var(--usn-blue50);
+  --color-primary-contrast: var(--usn-white00);
+  --color-secondary: var(--usn-red50);
+  --color-secondary-contrast: var(--usn-white00);
+
+  --color-success: var(--usn-green50);
+  --color-info: var(--usn-blue30);
+  --color-warning: var(--usn-orange70);
+  --color-error: var(--usn-red70);
+  --color-metric-good: var(--usn-green70);
+
+  --background-default: var(--usn-white00);
+  --background-paper: var(--usn-gray05);
+
+  --text-primary: var(--usn-black80);
+  --text-secondary: var(--usn-gray50);
+  --text-link: var(--usn-blue50);
+  --text-kicker: var(--usn-blue50);
+
+  --divider: var(--usn-gray15);
+  --border-default: var(--usn-gray15);
+
+  /* Interaction tints (derived, for hover/press) */
+  --color-primary-hover: #0F55B5;
+  --color-primary-active: #0C489B;
+  --color-secondary-hover: #B12220;
+  --color-secondary-active: #9B1D1B;
+  --state-hover-surface: rgba(18, 99, 211, 0.06);
+  --state-selected-surface: rgba(18, 99, 211, 0.10);
+}

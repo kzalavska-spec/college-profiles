@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/base.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/styles.css">
+  <script src="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>body{margin:0;background:#F4F7F9;color:#2C303C;font-family:Roboto,sans-serif}a{color:#1263D3;text-decoration:none}a:hover{color:#0C489B;text-decoration:none}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:56px">
+  <div style="display:flex;flex-direction:column;gap:8px;max-width:960px">
+    <span style="font:600 13px Montserrat,sans-serif;letter-spacing:.08em;color:#1263D3">TURN 5 · AFTER COLLEGE ON THE OVERVIEW TAB</span>
+    <h1 style="margin:0;font:600 34px Montserrat,sans-serif">Move After College up the page, with a freemium and a premium tier</h1>
+    <p style="margin:0;font:400 16px/1.55 Roboto,sans-serif;color:#515767">Three treatments of a compact After College module. Each shows freemium and premium at desktop (826px main column) and mobile (375px), plus a premium frame with less school content to show how the layout adapts. U.S. News data sits in the standard white module; school-provided content sits in a gray panel labeled "From Grinnell College". Midcareer salary, salaries by major and career fair firms are mock data.</p>
+  </div>
+
+  <div id="placement" style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;gap:12px;align-items:center">
+      <span style="background:#2C303C;color:#fff;font:600 14px Montserrat,sans-serif;padding:4px 10px;border-radius:4px">Placement</span>
+      <span style="font:600 22px Montserrat,sans-serif">Recommended: directly after Overview</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;max-width:1240px">
+      <sc-for list="{{ placementNotes }}" as="n" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;font:400 15px/1.5 Roboto,sans-serif;color:#2C303C"><span style="width:28px;height:28px;border-radius:4px;background:#fff;border:1px solid #D3D7DC;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font:600 13px Montserrat,sans-serif">{{ n.n }}</span><span style="text-wrap:pretty">{{ n.t }}</span></div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+      <sc-for list="{{ flows }}" as="fl" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font:500 13px Roboto,sans-serif;color:#515767">{{ fl.label }}</span>
+          <div style="width:{{ fl.w }};background:#fff;border:1px solid #D3D7DC;border-radius:8px;padding:16px;box-sizing:border-box;display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;gap:4px;flex-wrap:wrap;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid #D3D7DC">
+              <sc-for list="{{ fl.tabs }}" as="t" hint-placeholder-count="5">
+                <span style="font:500 10px Roboto,sans-serif;padding:3px 6px;border-radius:4px;background:{{ t.bg }};color:{{ t.color }}">{{ t.name }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ fl.blocks }}" as="b" hint-placeholder-count="10">
+                  <div style="height:{{ b.h }};border-radius:4px;background:{{ b.bg }};border:{{ b.border }};box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 10px;font:{{ b.font }};color:{{ b.color }}"><span>{{ b.name }}</span><span style="font:600 10px Montserrat,sans-serif;letter-spacing:.06em">{{ b.tag }}</span></div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ fl.aside }}" hint-placeholder-val="{{ true }}">
+                <div style="width:64px;height:220px;flex:none;border-radius:4px;border:1px dashed #D3D7DC;display:flex;align-items:center;justify-content:center;font:400 11px Roboto,sans-serif;color:#515767">Sidebar</div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:96px;align-items:flex-start">
+
+    <div id="5a" style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span style="background:#2C303C;color:#fff;font:600 14px Montserrat,sans-serif;padding:4px 10px;border-radius:4px">5a</span>
+        <span style="font:600 22px Montserrat,sans-serif">Outcomes snapshot</span>
+      </div>
+      <p style="margin:0;max-width:820px;font:400 15px/1.5 Roboto,sans-serif;color:#515767">Four headline numbers answer "what happens after graduation" at a glance, followed by career readiness and where graduates work. Closest to existing profile modules. Premium adds a "From Grinnell College" panel below with a video, an alumni spotlight, custom links and a Request Info button.</p>
+      <div style="display:grid;grid-template-columns:826px 375px;grid-auto-flow:row dense;gap:48px 40px;align-items:start">
+        <sc-for list="{{ framesA }}" as="f" hint-placeholder-count="5">
+          <div style="grid-column:{{ f.col }};display:flex;flex-direction:column;gap:8px">
+            <span style="font:500 13px Roboto,sans-serif;color:#515767">{{ f.label }}</span>
+            <div style="container-type:inline-size;background:#fff;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden">
+              <div style="padding:clamp(16px,4cqi,32px);display:flex;flex-direction:column;gap:32px">
+                <div style="padding:8px 12px;border:1px dashed #D3D7DC;border-radius:4px;font:400 12px Roboto,sans-serif;color:#515767">↑ Overview</div>
+                <div style="display:flex;flex-direction:column;gap:28px">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <h2 style="margin:0;font:600 clamp(26px,5cqi,34px) Montserrat,sans-serif">After College</h2>
+                      <span style="font:400 16px/1.5 Roboto,sans-serif;color:#515767">What happens after graduation at Grinnell College</span>
+                    </div>
+                    <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" variant="outlined" size="small" hint-size="150px,34px">Compare Outcomes</x-import>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+                    <sc-for list="{{ tiles }}" as="t" hint-placeholder-count="4">
+                      <div style="border:1px solid #D3D7DC;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:6px">
+                        <span style="font:400 13px/1.35 Roboto,sans-serif;color:#515767">{{ t.label }}</span>
+                        <span style="font:400 clamp(26px,4.4cqi,32px) Montserrat,sans-serif;color:#2C303C">{{ t.value }}</span>
+                        <span style="font:400 12px/1.35 Roboto,sans-serif;color:#515767">{{ t.note }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px">
+                    <div style="display:flex;flex-direction:column;gap:14px">
+                      <span style="font:600 18px Montserrat,sans-serif">Career Readiness</span>
+                      <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #D3D7DC;font:400 14px Roboto,sans-serif"><span>Formal internship program</span><strong style="font-weight:500">Yes</strong></div>
+                      <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:12px;border-bottom:1px solid #D3D7DC">
+                        <span style="font:400 14px Roboto,sans-serif">Internship compensation</span>
+                        <div style="display:flex;height:12px;border-radius:2px;overflow:hidden;gap:2px">
+                          <sc-for list="{{ intern }}" as="i" hint-placeholder-count="3"><span style="width:{{ i.pct }};background:{{ i.color }}"></span></sc-for>
+                        </div>
+                        <div style="display:flex;gap:16px;flex-wrap:wrap;font:400 12px Roboto,sans-serif;color:#515767">
+                          <sc-for list="{{ intern }}" as="i" hint-placeholder-count="3"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:{{ i.color }}"></span>{{ i.label }} {{ i.pct }}</span></sc-for>
+                        </div>
+                      </div>
+                      <div style="display:flex;flex-direction:column;gap:10px">
+                        <span style="font:400 14px Roboto,sans-serif">Career services offered <strong style="font-weight:500">(8)</strong></span>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px">
+                          <sc-for list="{{ servicesShort }}" as="sv" hint-placeholder-count="4">
+                            <x-import component-from-global-scope="USNewsDesignSystem_740152.Chip" label="{{ sv }}" variant="outlined" size="small" hint-size="110px,24px"></x-import>
+                          </sc-for>
+                          <a href="#" style="font:500 13px Roboto,sans-serif;align-self:center">+4 more</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:14px">
+                      <span style="font:600 18px Montserrat,sans-serif">Where Graduates Work</span>
+                      <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:12px;border-bottom:1px solid #D3D7DC">
+                        <span style="font:400 13px Roboto,sans-serif;color:#515767">Firms that most frequently hire graduates</span>
+                        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 16px;font:500 14px Roboto,sans-serif">
+                          <sc-for list="{{ hireShort }}" as="h" hint-placeholder-count="6"><span>{{ h }}</span></sc-for>
+                        </div>
+                      </div>
+                      <div style="display:flex;flex-direction:column;gap:8px">
+                        <span style="font:400 13px Roboto,sans-serif;color:#515767">Firms that most frequently visit career fairs</span>
+                        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 16px;font:500 14px Roboto,sans-serif">
+                          <sc-for list="{{ fairShort }}" as="h" hint-placeholder-count="4"><span>{{ h }}</span></sc-for>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <sc-if value="{{ f.premium }}" hint-placeholder-val="{{ false }}">
+                    <div style="background:#F4F7F9;border-radius:8px;padding:clamp(16px,3cqi,24px);display:flex;flex-direction:column;gap:20px">
+                      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap">
+                        <div style="display:flex;align-items:center;gap:10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2C303C"></circle><path d="M7 12.5l3.2 3L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font:600 18px Montserrat,sans-serif">From Grinnell College</span></div>
+                        <span style="font:400 12px Roboto,sans-serif;color:#515767">Content provided by the school</span>
+                      </div>
+                      <div style="display:flex;flex-wrap:wrap;gap:24px">
+                        <sc-if value="{{ f.video }}" hint-placeholder-val="{{ true }}">
+                          <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:8px">
+                            <div style="position:relative;aspect-ratio:16/9">
+                              <image-slot id="ac-video" shape="rounded" radius="8" placeholder="Career outcomes video poster" style="width:100%;height:100%"></image-slot>
+                              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none"><svg width="64" height="64" viewBox="0 0 96 96"><circle cx="48" cy="48" r="44" fill="rgba(44,48,60,.45)" stroke="#fff" stroke-width="5"></circle><path d="M40 30l26 18-26 18z" fill="#fff"></path></svg></div>
+                            </div>
+                            <span style="font:600 15px/1.3 Montserrat,sans-serif">Life after Grinnell: alumni on their first year out</span>
+                            <span style="font:400 13px Roboto,sans-serif;color:#515767">Video · 2:14</span>
+                          </div>
+                        </sc-if>
+                        <div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:16px">
+                          <sc-if value="{{ f.story }}" hint-placeholder-val="{{ true }}">
+                            <div style="background:#fff;border:1px solid #D3D7DC;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px">
+                              <span style="font:600 12px Montserrat,sans-serif;letter-spacing:.08em;color:#515767">ALUMNI SPOTLIGHT</span>
+                              <span style="font:600 16px/1.3 Montserrat,sans-serif">From a campus lab to a Google research team</span>
+                              <span style="font:400 14px/1.5 Roboto,sans-serif;color:#515767">Maya Chen ’22 turned two funded summer internships into a full-time role before graduation.</span>
+                              <a href="#" style="font:500 14px Roboto,sans-serif">Read Maya’s Story »</a>
+                            </div>
+                          </sc-if>
+                          <sc-if value="{{ f.links }}" hint-placeholder-val="{{ true }}">
+                            <div style="display:flex;flex-direction:column">
+                              <sc-for list="{{ schoolLinks }}" as="l" hint-placeholder-count="3">
+                                <a href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #D3D7DC;font:500 14px Roboto,sans-serif">{{ l }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex:none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a>
+                              </sc-for>
+                            </div>
+                          </sc-if>
+                        </div>
+                      </div>
+                      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding-top:16px;border-top:1px solid #D3D7DC">
+                        <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" color="secondary" size="small" hint-size="110px,34px">Request Info</x-import>
+                        <span style="font:400 13px Roboto,sans-serif;color:#515767">Hear from Grinnell admissions about career outcomes</span>
+                      </div>
+                    </div>
+                  </sc-if>
+                  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap">
+                    <a href="#" style="font:500 16px Roboto,sans-serif">See All Career Outcomes »</a>
+                    <span style="font:italic 400 12px Roboto,sans-serif;color:#515767">U.S. News data</span>
+                  </div>
+                </div>
+                <div style="padding:8px 12px;border:1px dashed #D3D7DC;border-radius:4px;font:400 12px Roboto,sans-serif;color:#515767">↓ 2027 Rankings</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div id="5b" style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span style="background:#2C303C;color:#fff;font:600 14px Montserrat,sans-serif;padding:4px 10px;border-radius:4px">5b</span>
+        <span style="font:600 22px Montserrat,sans-serif">Earnings vs. cost</span>
+      </div>
+      <p style="margin:0;max-width:820px;font:400 15px/1.5 Roboto,sans-serif;color:#515767">Leads with the investment question. Debt, four-year cost after aid, and starting and midcareer salary share one scale, so families can weigh cost against earnings in a single read. Career support is condensed to three facts and a row of employers. Premium adds a row of school cards (video, spotlight, links) that collapses to whatever the school provides.</p>
+      <div style="display:grid;grid-template-columns:826px 375px;grid-auto-flow:row dense;gap:48px 40px;align-items:start">
+        <sc-for list="{{ framesB }}" as="f" hint-placeholder-count="5">
+          <div style="grid-column:{{ f.col }};display:flex;flex-direction:column;gap:8px">
+            <span style="font:500 13px Roboto,sans-serif;color:#515767">{{ f.label }}</span>
+            <div style="container-type:inline-size;background:#fff;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden">
+              <div style="padding:clamp(16px,4cqi,32px);display:flex;flex-direction:column;gap:32px">
+                <div style="padding:8px 12px;border:1px dashed #D3D7DC;border-radius:4px;font:400 12px Roboto,sans-serif;color:#515767">↑ Overview</div>
+                <div style="display:flex;flex-direction:column;gap:28px">
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <h2 style="margin:0;font:600 clamp(26px,5cqi,34px) Montserrat,sans-serif">After College</h2>
+                    <span style="font:400 16px/1.5 Roboto,sans-serif;color:#515767">Is Grinnell College worth the investment?</span>
+                  </div>
+                  <div style="border:1px solid #D3D7DC;border-radius:8px;padding:clamp(16px,3cqi,24px);display:flex;flex-direction:column;gap:18px">
+                    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px 16px;flex-wrap:wrap">
+                      <span style="font:600 18px Montserrat,sans-serif">Earnings vs. Cost</span>
+                      <span style="font:400 12px Roboto,sans-serif;color:#515767">Based on average cost after aid of $17,772 per year</span>
+                    </div>
+                    <sc-for list="{{ roi }}" as="r" hint-placeholder-count="4">
+                      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:baseline">
+                        <span style="font:400 14px Roboto,sans-serif">{{ r.label }}</span>
+                        <span style="font:600 18px Montserrat,sans-serif;color:{{ r.text }}">{{ r.value }}</span>
+                        <div style="grid-column:1 / -1;height:10px;background:#F4F7F9;border-radius:2px;overflow:hidden"><div style="width:{{ r.pct }};height:100%;background:{{ r.color }};border-radius:2px"></div></div>
+                      </div>
+                    </sc-for>
+                    <div style="display:flex;gap:8px 24px;flex-wrap:wrap;padding-top:14px;border-top:1px solid #D3D7DC;font:400 14px Roboto,sans-serif;color:#515767">
+                      <span><strong style="font-weight:600;color:#2C303C">27%</strong> of graduates borrowed</span>
+                      <span><strong style="font-weight:600;color:#2C303C">69%</strong> graduate in four years</span>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid #D3D7DC;border-bottom:1px solid #D3D7DC">
+                    <sc-for list="{{ careerFacts }}" as="c" hint-placeholder-count="3">
+                      <div style="padding:16px 4px;display:flex;flex-direction:column;gap:4px">
+                        <span style="font:400 24px Montserrat,sans-serif">{{ c.value }}</span>
+                        <span style="font:400 13px/1.35 Roboto,sans-serif;color:#515767">{{ c.label }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <span style="font:400 14px Roboto,sans-serif">Firms that most frequently hire graduates</span>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px">
+                      <sc-for list="{{ hireShort }}" as="h" hint-placeholder-count="6">
+                        <x-import component-from-global-scope="USNewsDesignSystem_740152.Chip" label="{{ h }}" variant="outlined" size="small" hint-size="90px,24px"></x-import>
+                      </sc-for>
+                      <a href="#" style="font:500 13px Roboto,sans-serif;align-self:center">+6 more</a>
+                    </div>
+                  </div>
+                  <sc-if value="{{ f.premium }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-direction:column;gap:16px;background:#F4F7F9;border-radius:8px;padding:clamp(16px,3cqi,24px)">
+                      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap">
+                        <div style="display:flex;align-items:center;gap:10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2C303C"></circle><path d="M7 12.5l3.2 3L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font:600 18px Montserrat,sans-serif">From Grinnell College</span></div>
+                        <span style="font:400 12px Roboto,sans-serif;color:#515767">Content provided by the school</span>
+                      </div>
+                      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+                        <sc-if value="{{ f.video }}" hint-placeholder-val="{{ true }}">
+                          <div style="background:#fff;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden;display:flex;flex-direction:column">
+                            <div style="position:relative;aspect-ratio:16/10">
+                              <image-slot id="ac-video" shape="rect" placeholder="Career outcomes video poster" style="width:100%;height:100%"></image-slot>
+                              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none"><svg width="48" height="48" viewBox="0 0 96 96"><circle cx="48" cy="48" r="44" fill="rgba(44,48,60,.45)" stroke="#fff" stroke-width="5"></circle><path d="M40 30l26 18-26 18z" fill="#fff"></path></svg></div>
+                            </div>
+                            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/1.3 Montserrat,sans-serif">Life after Grinnell</span><span style="font:400 13px Roboto,sans-serif;color:#515767">Video · 2:14</span></div>
+                          </div>
+                        </sc-if>
+                        <sc-if value="{{ f.story }}" hint-placeholder-val="{{ true }}">
+                          <div style="background:#fff;border:1px solid #D3D7DC;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px">
+                            <span style="font:600 12px Montserrat,sans-serif;letter-spacing:.08em;color:#515767">ALUMNI SPOTLIGHT</span>
+                            <span style="font:600 15px/1.3 Montserrat,sans-serif">From a campus lab to a Google research team</span>
+                            <span style="font:400 14px/1.5 Roboto,sans-serif;color:#515767">Maya Chen ’22 turned two funded summer internships into a full-time role.</span>
+                            <a href="#" style="margin-top:auto;font:500 14px Roboto,sans-serif">Read Maya’s Story »</a>
+                          </div>
+                        </sc-if>
+                        <sc-if value="{{ f.links }}" hint-placeholder-val="{{ true }}">
+                          <div style="background:#fff;border:1px solid #D3D7DC;border-radius:8px;padding:4px 16px;display:flex;flex-direction:column">
+                            <sc-for list="{{ schoolLinks }}" as="l" hint-placeholder-count="3">
+                              <a href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #D3D7DC;font:500 14px/1.35 Roboto,sans-serif">{{ l }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex:none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a>
+                            </sc-for>
+                            <div style="padding:12px 0"><x-import component-from-global-scope="USNewsDesignSystem_740152.Button" color="secondary" size="small" hint-size="110px,34px">Request Info</x-import></div>
+                          </div>
+                        </sc-if>
+                      </div>
+                    </div>
+                  </sc-if>
+                  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px 16px;flex-wrap:wrap">
+                    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+                      <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" variant="outlined" size="small" hint-size="150px,34px">Compare Outcomes</x-import>
+                      <a href="#" style="font:500 16px Roboto,sans-serif">See All Career Outcomes »</a>
+                    </div>
+                    <span style="font:italic 400 12px Roboto,sans-serif;color:#515767">U.S. News data</span>
+                  </div>
+                </div>
+                <div style="padding:8px 12px;border:1px dashed #D3D7DC;border-radius:4px;font:400 12px Roboto,sans-serif;color:#515767">↓ 2027 Rankings</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div id="5c" style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span style="background:#2C303C;color:#fff;font:600 14px Montserrat,sans-serif;padding:4px 10px;border-radius:4px">5c</span>
+        <span style="font:600 22px Montserrat,sans-serif">Tabbed outcomes card</span>
+      </div>
+      <p style="margin:0;max-width:820px;font:400 15px/1.5 Roboto,sans-serif;color:#515767">The most compact option: one card with four tabs (Earnings, Graduation &amp; Debt, Career Support, Employers), so the module stays short on the Overview tab and each tab click can be tracked. Premium adds a fifth "From Grinnell" tab, opened by default on desktop. Click the tabs to try it.</p>
+      <div style="display:grid;grid-template-columns:826px 375px;grid-auto-flow:row dense;gap:48px 40px;align-items:start">
+        <sc-for list="{{ framesC }}" as="f" hint-placeholder-count="5">
+          <div style="grid-column:{{ f.col }};display:flex;flex-direction:column;gap:8px">
+            <span style="font:500 13px Roboto,sans-serif;color:#515767">{{ f.label }}</span>
+            <div style="container-type:inline-size;background:#fff;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden">
+              <div style="padding:clamp(16px,4cqi,32px);display:flex;flex-direction:column;gap:32px">
+                <div style="padding:8px 12px;border:1px dashed #D3D7DC;border-radius:4px;font:400 12px Roboto,sans-serif;color:#515767">↑ Overview</div>
+                <div style="display:flex;flex-direction:column;gap:24px">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <h2 style="margin:0;font:600 clamp(26px,5cqi,34px) Montserrat,sans-serif">After College</h2>
+                      <span style="font:400 16px/1.5 Roboto,sans-serif;color:#515767">What happens after graduation at Grinnell College</span>
+                    </div>
+                    <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" variant="outlined" size="small" hint-size="150px,34px">Compare Outcomes</x-import>
+                  </div>
+                  <div style="border:1px solid #D3D7DC;border-radius:8px;overflow:hidden">
+                    <div style="overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #D3D7DC;padding:0 8px">
+                      <x-import component-from-global-scope="USNewsDesignSystem_740152.Tabs" value="{{ f.tab }}" on-change="{{ f.onTab }}" tabs="{{ f.tabs }}" style="border-bottom:none;white-space:nowrap" hint-size="100%,48px"></x-import>
+                    </div>
+                    <div style="padding:clamp(16px,3cqi,24px);min-height:200px;box-sizing:border-box">
+                      <sc-if value="{{ f.isEarn }}" hint-placeholder-val="{{ true }}">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px">
+                          <div style="display:flex;flex-direction:column;gap:16px">
+                            <div style="display:flex;flex-direction:column;gap:4px"><span style="font:400 13px Roboto,sans-serif;color:#515767">Median starting salary</span><span style="font:400 36px Montserrat,sans-serif">$58,955</span></div>
+                            <div style="display:flex;flex-direction:column;gap:4px"><span style="font:400 13px Roboto,sans-serif;color:#515767">Median midcareer salary</span><span style="font:400 36px Montserrat,sans-serif">$118,600</span></div>
+                          </div>
+                          <div style="display:flex;flex-direction:column">
+                            <span style="font:400 13px Roboto,sans-serif;color:#515767;padding-bottom:6px">Starting salary by major</span>
+                            <sc-for list="{{ majors }}" as="m" hint-placeholder-count="4">
+                              <div style="display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid #D3D7DC;font:400 14px Roboto,sans-serif"><span>{{ m.label }}</span><strong style="font-weight:500">{{ m.value }}</strong></div>
+                            </sc-for>
+                          </div>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ f.isDebt }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px">
+                          <sc-for list="{{ debtStats }}" as="d" hint-placeholder-count="3">
+                            <div style="display:flex;flex-direction:column;gap:4px"><span style="font:400 13px/1.35 Roboto,sans-serif;color:#515767">{{ d.label }}</span><span style="font:400 36px Montserrat,sans-serif">{{ d.value }}</span></div>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ f.isCareer }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px">
+                          <div style="display:flex;flex-direction:column;gap:14px">
+                            <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid #D3D7DC;font:400 14px Roboto,sans-serif"><span>Formal internship program</span><strong style="font-weight:500">Yes</strong></div>
+                            <span style="font:400 14px Roboto,sans-serif">Internship compensation</span>
+                            <div style="display:flex;height:12px;border-radius:2px;overflow:hidden;gap:2px">
+                              <sc-for list="{{ intern }}" as="i" hint-placeholder-count="3"><span style="width:{{ i.pct }};background:{{ i.color }}"></span></sc-for>
+                            </div>
+                            <div style="display:flex;gap:16px;flex-wrap:wrap;font:400 12px Roboto,sans-serif;color:#515767">
+                              <sc-for list="{{ intern }}" as="i" hint-placeholder-count="3"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:{{ i.color }}"></span>{{ i.label }} {{ i.pct }}</span></sc-for>
+                            </div>
+                          </div>
+                          <div style="display:flex;flex-direction:column;gap:8px">
+                            <span style="font:400 13px Roboto,sans-serif;color:#515767">Career services offered</span>
+                            <sc-for list="{{ services }}" as="sv" hint-placeholder-count="8"><span style="font:500 14px/1.35 Roboto,sans-serif">{{ sv }}</span></sc-for>
+                          </div>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ f.isEmp }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px">
+                          <div style="display:flex;flex-direction:column;gap:8px">
+                            <span style="font:400 13px Roboto,sans-serif;color:#515767">Firms that most frequently hire graduates</span>
+                            <sc-for list="{{ hireShort }}" as="h" hint-placeholder-count="6"><span style="font:500 14px Roboto,sans-serif">{{ h }}</span></sc-for>
+                            <a href="#" style="font:500 13px Roboto,sans-serif">+6 more</a>
+                          </div>
+                          <div style="display:flex;flex-direction:column;gap:8px">
+                            <span style="font:400 13px Roboto,sans-serif;color:#515767">Firms that most frequently visit career fairs</span>
+                            <sc-for list="{{ fair }}" as="h" hint-placeholder-count="6"><span style="font:500 14px Roboto,sans-serif">{{ h }}</span></sc-for>
+                          </div>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ f.isSchool }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:flex;flex-direction:column;gap:16px;background:#F4F7F9;margin:calc(-1 * clamp(16px,3cqi,24px));padding:clamp(16px,3cqi,24px)">
+                          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap">
+                            <div style="display:flex;align-items:center;gap:10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2C303C"></circle><path d="M7 12.5l3.2 3L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font:600 16px Montserrat,sans-serif">From Grinnell College</span></div>
+                            <span style="font:400 12px Roboto,sans-serif;color:#515767">Content provided by the school</span>
+                          </div>
+                          <div style="display:flex;flex-wrap:wrap;gap:20px">
+                            <sc-if value="{{ f.video }}" hint-placeholder-val="{{ true }}">
+                              <div style="flex:1 1 300px;min-width:0;position:relative;aspect-ratio:16/9">
+                                <image-slot id="ac-video" shape="rounded" radius="8" placeholder="Career outcomes video poster" style="width:100%;height:100%"></image-slot>
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none"><svg width="56" height="56" viewBox="0 0 96 96"><circle cx="48" cy="48" r="44" fill="rgba(44,48,60,.45)" stroke="#fff" stroke-width="5"></circle><path d="M40 30l26 18-26 18z" fill="#fff"></path></svg></div>
+                              </div>
+                            </sc-if>
+                            <div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:12px">
+                              <sc-if value="{{ f.story }}" hint-placeholder-val="{{ true }}">
+                                <div style="display:flex;flex-direction:column;gap:6px">
+                                  <span style="font:600 12px Montserrat,sans-serif;letter-spacing:.08em;color:#515767">ALUMNI SPOTLIGHT</span>
+                                  <span style="font:600 15px/1.3 Montserrat,sans-serif">From a campus lab to a Google research team</span>
+                                  <a href="#" style="font:500 14px Roboto,sans-serif">Read Maya’s Story »</a>
+                                </div>
+                              </sc-if>
+                              <sc-if value="{{ f.links }}" hint-placeholder-val="{{ true }}">
+                                <div style="display:flex;flex-direction:column">
+                                  <sc-for list="{{ schoolLinks }}" as="l" hint-placeholder-count="3">
+                                    <a href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #D3D7DC;font:500 14px/1.35 Roboto,sans-serif">{{ l }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex:none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a>
+                                  </sc-for>
+                                </div>
+                              </sc-if>
+                              <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" color="secondary" size="small" style="align-self:flex-start" hint-size="110px,34px">Request Info</x-import>
+                            </div>
+                          </div>
+                        </div>
+                      </sc-if>
+                    </div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap">
+                    <a href="#" style="font:500 16px Roboto,sans-serif">See All Career Outcomes »</a>
+                    <span style="font:italic 400 12px Roboto,sans-serif;color:#515767">{{ f.source }}</span>
+                  </div>
+                </div>
+                <div style="padding:8px 12px;border:1px dashed #D3D7DC;border-radius:4px;font:400 12px Roboto,sans-serif;color:#515767">↓ 2027 Rankings</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tabs: {} };
+  renderVals() {
+    const mk = p => [
+      { label: 'Desktop · Freemium', col: '1' },
+      { label: 'Desktop · Premium: video, spotlight and links', col: '1', premium: true, video: true, story: true, links: true },
+      { label: 'Desktop · Premium: spotlight and links only', col: '1', premium: true, story: true, links: true },
+      { label: 'Mobile · Freemium', col: '2' },
+      { label: 'Mobile · Premium', col: '2', premium: true, video: true, story: true, links: true }
+    ].map((f, i) => ({ premium: false, video: false, story: false, links: false, ...f, key: p + i }));
+    const baseTabs = [{ value: 'earn', label: 'Earnings' }, { value: 'debt', label: 'Graduation & Debt' }, { value: 'career', label: 'Career Support' }, { value: 'emp', label: 'Employers' }];
+    const framesC = mk('c').map(f => {
+      const t = this.state.tabs[f.key] ?? (f.premium && f.col === '1' ? 'school' : 'earn');
+      return { ...f, tab: t, tabs: f.premium ? [...baseTabs, { value: 'school', label: 'From Grinnell' }] : baseTabs,
+        onTab: v => this.setState(s => ({ tabs: { ...s.tabs, [f.key]: v } })),
+        isEarn: t === 'earn', isDebt: t === 'debt', isCareer: t === 'career', isEmp: t === 'emp', isSchool: t === 'school',
+        source: t === 'school' ? 'Provided by Grinnell College' : 'U.S. News data' };
+    });
+    const hire = ['Amazon', 'Google', 'Deloitte', 'Microsoft', 'McKinsey & Company', 'Epic', 'Meta', 'Analysis Group', 'NERA Economic Consulting', 'ScribeAmerica', 'Teaching Assistant Program in France', 'University of Iowa'];
+    const fair = ['Principal Financial Group', 'Wells Fargo', 'Teach For America', 'Epic', 'Cargill', 'Peace Corps'];
+    const services = ['Alumni network', 'Internships', 'Career/job search classes', 'Interview training', 'Interest inventory', 'On-campus job interviews', 'International student internship/job placement assistance', 'Resume assistance'];
+    const C = (bg, border, color, font) => ({ bg, border, color, font });
+    const norm = C('#F4F7F9', '1px solid #F4F7F9', '#515767', '400 11px Roboto,sans-serif');
+    const hot = C('#E3EEFB', '2px solid #1263D3', '#0C489B', '600 12px Montserrat,sans-serif');
+    const old = C('#fff', '1px dashed #515767', '#515767', '400 11px Roboto,sans-serif');
+    const blocks = (rec, mobile) => {
+      const s = mobile ? 0.8 : 1, h = n => Math.round(n * s) + 'px';
+      const list = [
+        { name: 'Photos', h: h(56), ...norm }, { name: 'Overview', h: h(40), ...norm },
+        ...(rec ? [{ name: 'After College', h: h(64), tag: 'NEW', ...hot }] : []),
+        { name: '2027 Rankings', h: h(36), ...norm }, { name: 'Admissions', h: h(40), ...norm }, { name: 'Upcoming Events', h: h(28), ...norm },
+        { name: 'Cost', h: h(36), ...norm }, { name: 'Academics', h: h(36), ...norm }, { name: 'Student Population', h: h(32), ...norm },
+        { name: 'Campus Life', h: h(36), ...norm },
+        rec ? { name: 'After College', h: h(28), tag: 'REMOVED', ...old } : { name: 'After College', h: h(32), tag: 'TODAY', ...hot },
+        { name: 'Reviews & Ratings', h: h(36), ...norm }
+      ];
+      return list.map(b => ({ tag: '', ...b }));
+    };
+    const tabsRow = rec => ['Overview', ...(rec ? ['After College'] : []), 'Rankings', 'Admissions', 'Cost'].map(n => ({ name: n, bg: n === 'After College' ? '#E3EEFB' : '#F4F7F9', color: n === 'After College' ? '#0C489B' : '#515767' }));
+    return {
+      placementNotes: [
+        { n: '1', t: 'Place After College directly after Overview, above 2027 Rankings. It becomes the first data module on the page, so "What happens after graduation?" is answered before a visitor starts scrolling through rankings and admissions.' },
+        { n: '2', t: 'Add an After College tab to the sticky tab bar, after Overview, so the section is one click away from anywhere on the page.' },
+        { n: '3', t: 'Freemium and premium use the same slot. Premium content is added below the U.S. News data in a panel marked "From Grinnell College", so schools get a prominent place without changing the standardized data.' },
+        { n: '4', t: 'On mobile the order is the same; the module stacks to one column and stays within about two screen heights.' }
+      ],
+      flows: [
+        { label: 'Desktop · Today', w: '360px', aside: true, blocks: blocks(false), tabs: tabsRow(false) },
+        { label: 'Desktop · Recommended', w: '360px', aside: true, blocks: blocks(true), tabs: tabsRow(true) },
+        { label: 'Mobile · Today', w: '220px', aside: false, blocks: blocks(false, true), tabs: tabsRow(false) },
+        { label: 'Mobile · Recommended', w: '220px', aside: false, blocks: blocks(true, true), tabs: tabsRow(true) }
+      ],
+      framesA: mk('a'), framesB: mk('b'), framesC,
+      tiles: [
+        { label: 'Median starting salary', value: '$58,955', note: 'Alumni, all majors' },
+        { label: 'Median midcareer salary', value: '$118,600', note: '10+ years after graduation' },
+        { label: '4-year graduation rate', value: '69%', note: 'Full-time students' },
+        { label: 'Average debt at graduation', value: '$16,787', note: '27% of graduates borrowed' }
+      ],
+      intern: [{ label: 'Paid', pct: '42%', color: '#068448' }, { label: 'Unpaid', pct: '31%', color: '#E89A00' }, { label: 'Unknown', pct: '27%', color: '#D3D7DC' }],
+      services, servicesShort: services.slice(0, 4),
+      hireShort: hire.slice(0, 6), fair, fairShort: fair.slice(0, 4),
+      roi: [
+        { label: 'Average debt at graduation', value: '$16,787', pct: '14%', color: '#515767', text: '#2C303C' },
+        { label: 'Total cost after aid, 4 years', value: '$71,088', pct: '60%', color: '#515767', text: '#2C303C' },
+        { label: 'Median starting salary', value: '$58,955', pct: '50%', color: '#068448', text: '#068448' },
+        { label: 'Median midcareer salary', value: '$118,600', pct: '100%', color: '#068448', text: '#068448' }
+      ],
+      careerFacts: [{ value: 'Yes', label: 'Formal internship program' }, { value: '42%', label: 'Internships that are paid' }, { value: '8', label: 'Career services offered' }],
+      majors: [{ label: 'Computer Science', value: '$79,800' }, { label: 'Economics', value: '$66,400' }, { label: 'Political Science', value: '$55,100' }, { label: 'Biology', value: '$47,300' }],
+      debtStats: [{ label: '4-year graduation rate', value: '69%' }, { label: 'Graduates who borrowed', value: '27%' }, { label: 'Average debt at graduation', value: '$16,787' }],
+      schoolLinks: ['Center for Careers, Life, and Service', '2025 Graduate Outcomes Report', 'Grinnell Alumni Network']
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/base.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/styles.css">
+  <script src="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>body{margin:0;background:#fff;color:#2C303C;font-family:Roboto,sans-serif}a{color:#1263D3;text-decoration:none}a:hover{color:#0C489B;text-decoration:none}</style>
+</helmet>
+<div style="display:flex;flex-direction:column;gap:20px;color:#2C303C;min-width:0">
+
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:12px">
+        <sc-if value="{{ isIg }}" hint-placeholder-val="{{ true }}"><img src="assets/ig-logo.png" alt="Instagram" style="width:40px;height:40px;display:block;flex:none"></sc-if>
+        <sc-if value="{{ isTt }}" hint-placeholder-val="{{ false }}"><svg width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="TikTok" style="flex:none"><circle cx="12" cy="12" r="12" fill="#000"></circle><g transform="translate(3.6 3.4) scale(.7)"><path transform="translate(-.6 -.45)" fill="#25F4EE" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path><path transform="translate(.6 .45)" fill="#FE2C55" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path><path fill="#fff" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path></g></svg></sc-if>
+        <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;border:1px solid #D3D7DC;flex:none"><img src="assets/ig-avatar.png" alt="Grinnell College logo" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font:600 14px Montserrat,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ acct.handle }}</span><span style="font:400 13px Roboto,sans-serif;color:#515767">Grinnell College</span></div>
+        <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" color="secondary" size="small" aria-label="{{ acct.followLabel }}" hint-size="72px,36px">Follow</x-import>
+      </div>
+    </sc-if>
+    <sc-if value="{{ fullHeader }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <sc-if value="{{ showTabs }}" hint-placeholder-val="{{ false }}">
+        <div role="tablist" aria-label="School social channels" style="display:flex;gap:4px;padding:4px;background:#F4F7F9;border:1px solid #D3D7DC;border-radius:4px">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+            <button role="tab" aria-selected="{{ t.active }}" onClick="{{ t.select }}" style="height:44px;padding:0 16px;display:flex;align-items:center;gap:8px;border-radius:4px;cursor:pointer;font:500 15px Roboto,sans-serif;background:{{ t.bg }};color:{{ t.color }};border:1px solid {{ t.border }};transition:background .15s,color .15s">
+              <sc-if value="{{ t.isIg }}" hint-placeholder-val="{{ true }}"><img src="assets/ig-logo.png" alt="" style="width:24px;height:24px;display:block"></sc-if>
+              <sc-if value="{{ t.isTt }}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#000"></circle><g transform="translate(3.6 3.4) scale(.7)"><path transform="translate(-.8 -.6)" fill="#25F4EE" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path><path transform="translate(.8 .6)" fill="#FE2C55" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path><path fill="#fff" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path></g></svg></sc-if>
+              <span>{{ t.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showLogo }}" hint-placeholder-val="{{ true }}">
+        <sc-if value="{{ isIg }}" hint-placeholder-val="{{ true }}"><img src="assets/ig-logo.png" alt="Instagram" style="width:72px;height:72px;display:block"></sc-if>
+        <sc-if value="{{ isTt }}" hint-placeholder-val="{{ false }}"><svg width="72" height="72" viewBox="0 0 24 24" role="img" aria-label="TikTok"><circle cx="12" cy="12" r="12" fill="#000"></circle><g transform="translate(3.6 3.4) scale(.7)"><path transform="translate(-.6 -.45)" fill="#25F4EE" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path><path transform="translate(.6 .45)" fill="#FE2C55" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path><path fill="#fff" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path></g></svg></sc-if>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:16px;opacity:{{ op }};transition:opacity .15s ease">
+        <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;border:1px solid #D3D7DC;flex:none"><img src="assets/ig-avatar.png" alt="Grinnell College logo" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font:600 15px Montserrat,sans-serif">{{ acct.handle }}</span><span style="font:400 14px Roboto,sans-serif;color:#515767">Grinnell College</span></div>
+        <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" color="secondary" aria-label="{{ acct.followLabel }}" hint-size="80px,40px">Follow</x-import>
+      </div>
+    </div>
+    </sc-if>
+    <div style="display:grid;grid-template-columns:{{ cols }};gap:{{ gridGap }};opacity:{{ op }};transition:opacity .15s ease">
+      <sc-for list="{{ posts }}" as="p" hint-placeholder-count="3">
+        <a href="#" aria-label="{{ p.aria }}" style="color:#2C303C;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;background:#fff">
+          <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#F4F7F9">
+            <sc-if value="{{ p.hasSrc }}" hint-placeholder-val="{{ true }}"><img src="{{ p.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .15s ease" style-hover="transform:scale(1.02)"></sc-if>
+            <sc-if value="{{ p.isSlot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ p.id }}" shape="rect" placeholder="TikTok cover image" style="width:100%;height:100%"></image-slot></sc-if>
+            <sc-if value="{{ p.isVideo }}" hint-placeholder-val="{{ false }}">
+              <span style="position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:4px;background:rgba(44,48,60,.8);color:#fff;font:500 12px Roboto,sans-serif;pointer-events:none"><svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z" fill="#fff"></path></svg>{{ p.views }}</span>
+            </sc-if>
+          </div>
+          <sc-if value="{{ showCaption }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:16px;display:flex;flex-direction:column;gap:12px;flex:1">
+            <span style="font:400 15px/1.5 Roboto,sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ p.caption }}</span>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:400 13px Roboto,sans-serif;color:#515767"><span>{{ p.ago }}</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2C303C" stroke-width="2" aria-hidden="true"><path d="{{ p.iconPath }}" fill="{{ p.iconFill }}" stroke="{{ p.iconStroke }}"></path></svg></div>
+          </div>
+          </sc-if>
+        </a>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-if value="{{ showTabs }}" hint-placeholder-val="{{ false }}">
+        <div role="tablist" aria-label="School social channels" style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#F4F7F9;border:1px solid #D3D7DC;border-radius:4px">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+            <button role="tab" aria-selected="{{ t.active }}" onClick="{{ t.select }}" style="height:44px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:4px;cursor:pointer;font:500 15px Roboto,sans-serif;background:{{ t.bg }};color:{{ t.color }};border:1px solid {{ t.border }}">
+              <sc-if value="{{ t.isIg }}" hint-placeholder-val="{{ true }}"><img src="assets/ig-logo.png" alt="" style="width:22px;height:22px;display:block"></sc-if>
+              <sc-if value="{{ t.isTt }}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#000"></circle><g transform="translate(3.6 3.4) scale(.7)"><path fill="#fff" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path></g></svg></sc-if>
+              <span>{{ t.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:12px;opacity:{{ op }};transition:opacity .15s ease">
+        <sc-if value="{{ showLogo }}" hint-placeholder-val="{{ true }}">
+          <sc-if value="{{ isIg }}" hint-placeholder-val="{{ true }}"><img src="assets/ig-logo.png" alt="Instagram" style="width:40px;height:40px;display:block;flex:none"></sc-if>
+          <sc-if value="{{ isTt }}" hint-placeholder-val="{{ false }}"><svg width="40" height="40" viewBox="0 0 24 24" role="img" aria-label="TikTok" style="flex:none"><circle cx="12" cy="12" r="12" fill="#000"></circle><g transform="translate(3.6 3.4) scale(.7)"><path fill="#fff" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"></path></g></svg></sc-if>
+        </sc-if>
+        <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;border:1px solid #D3D7DC;flex:none"><img src="assets/ig-avatar.png" alt="Grinnell College logo" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font:600 14px Montserrat,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ acct.handle }}</span><span style="font:400 13px Roboto,sans-serif;color:#515767">Grinnell College</span></div>
+        <x-import component-from-global-scope="USNewsDesignSystem_740152.Button" color="secondary" size="small" aria-label="{{ acct.followLabel }}" hint-size="72px,36px">Follow</x-import>
+      </div>
+    </div>
+    <div onScroll="{{ onScroll }}" style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -16px;padding:0 16px;scroll-padding:0 16px;opacity:{{ op }};transition:opacity .15s ease">
+      <sc-for list="{{ posts }}" as="p" hint-placeholder-count="3">
+        <a href="#" aria-label="{{ p.aria }}" style="flex:0 0 80%;scroll-snap-align:start;color:#2C303C;border:1px solid #D3D7DC;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;background:#fff">
+          <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#F4F7F9">
+            <sc-if value="{{ p.hasSrc }}" hint-placeholder-val="{{ true }}"><img src="{{ p.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if>
+            <sc-if value="{{ p.isSlot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ p.id }}" shape="rect" placeholder="TikTok cover image" style="width:100%;height:100%"></image-slot></sc-if>
+            <sc-if value="{{ p.isVideo }}" hint-placeholder-val="{{ false }}">
+              <span style="position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:4px;background:rgba(44,48,60,.8);color:#fff;font:500 12px Roboto,sans-serif;pointer-events:none"><svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z" fill="#fff"></path></svg>{{ p.views }}</span>
+            </sc-if>
+          </div>
+          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+            <span style="font:400 14px/1.45 Roboto,sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ p.caption }}</span>
+            <span style="font:400 12px Roboto,sans-serif;color:#515767">{{ p.ago }}</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <div aria-hidden="true" style="display:flex;justify-content:center;gap:8px">
+      <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3"><span style="width:8px;height:8px;border-radius:50%;background:{{ d.bg }};transition:background .15s"></span></sc-for>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:820,&quot;height&quot;:620},&quot;networks&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Both&quot;,&quot;Instagram only&quot;,&quot;TikTok only&quot;],&quot;default&quot;:&quot;Both&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Instagram&quot;,&quot;TikTok&quot;],&quot;default&quot;:&quot;Instagram&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;compact&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;count&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:4,&quot;tsType&quot;:&quot;number&quot;}}">class Component extends DCLogic {
+  state = { tab: null, op: 1, idx: 0 };
+  switchTab(t) {
+    if (t === this.current()) return;
+    this.setState({ op: 0 });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ tab: t, op: 1, idx: 0 }), 150);
+  }
+  current() {
+    const n = this.props.networks ?? 'Both';
+    if (n === 'Instagram only') return 'ig';
+    if (n === 'TikTok only') return 'tt';
+    return this.state.tab ?? (this.props.defaultTab === 'TikTok' ? 'tt' : 'ig');
+  }
+  renderVals() {
+    const n = this.props.networks ?? 'Both';
+    const mobile = this.props.mobile ?? false;
+    const cur = this.current();
+    const IGP = 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z';
+    const TTP = 'M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z';
+    const ig = [
+      { id: 'ig-post-1', src: (window.__resources || {}).igPost1 || 'assets/ig-post-1.png', caption: '...and all that jazz @grinnelltdps put on a musical...', ago: 'Less than a day ago' },
+      { id: 'ig-post-2', src: (window.__resources || {}).igPost2 || 'assets/ig-post-2.png', caption: 'transcending the game #LiveGrinnellian...', ago: '1 week ago' },
+      { id: 'ig-post-3', src: (window.__resources || {}).igPost3 || 'assets/ig-post-3.png', caption: 'What was your First-Year Tutorial class? #...', ago: '2 weeks ago' }
+    ].map(p => ({ ...p, hasSrc: true, isSlot: false, isVideo: false, views: '', aria: 'Open Instagram post: ' + p.caption, iconPath: IGP, iconFill: 'none', iconStroke: '#2C303C' }));
+    const tt = [
+      { id: 'tt-cover-1', caption: 'Dorm room tour 2026: what a Grinnell double really looks like', ago: '2 days ago', views: '14.2K' },
+      { id: 'tt-cover-2', caption: 'Day in the life of a Grinnell first-year, from Tutorial to the Bear', ago: '5 days ago', views: '45.1K' },
+      { id: 'tt-cover-3', caption: 'Dining hall tier list, ranked by people who eat there every day', ago: '1 week ago', views: '8.9K' },
+      { id: 'tt-cover-4', caption: 'Best study spots on campus during finals week', ago: '2 weeks ago', views: '21.6K' }
+    ].map((p, i) => ({ ...p, src: ['1555854877-bab0e564b8d5', '1606761568499-6d2451b23c66', '1567521464027-f127ff144326', '1427504494785-3a9ca7044f45'].map((id, k) => (window.__resources || {})['ttCover' + (k + 1)] || 'https://images.unsplash.com/photo-' + id + '?w=480&h=600&fit=crop')[i], hasSrc: true, isSlot: false, isVideo: true, aria: 'Watch on TikTok: ' + p.caption, iconPath: TTP, iconFill: '#2C303C', iconStroke: 'none' }));
+    const compact = this.props.compact ?? false;
+    const count = this.props.count ?? 3;
+    const posts = (cur === 'tt' ? tt : ig).slice(0, count);
+    const both = n === 'Both';
+    const mk = (key, label) => ({ key, label, active: cur === key, isIg: key === 'ig', isTt: key === 'tt',
+      bg: cur === key ? '#fff' : 'transparent', color: cur === key ? '#2C303C' : '#515767', border: cur === key ? '#D3D7DC' : 'transparent',
+      select: () => this.switchTab(key) });
+    return {
+      isDesktop: !mobile, isMobile: mobile,
+      compact: compact && !mobile, fullHeader: !compact, showCaption: !compact,
+      cols: 'repeat(' + posts.length + ',minmax(0,1fr))', gridGap: compact ? '12px' : '16px',
+      showTabs: both, showLogo: !both, isIg: cur === 'ig', isTt: cur === 'tt',
+      tabs: [mk('ig', 'Instagram'), mk('tt', 'TikTok')],
+      acct: cur === 'tt' ? { handle: '@grinnellcollege', followLabel: 'Follow Grinnell College on TikTok' } : { handle: 'grinnellcollege', followLabel: 'Follow Grinnell College on Instagram' },
+      posts, op: this.state.op,
+      dots: posts.map((_, i) => ({ bg: i === this.state.idx ? '#1263D3' : '#D3D7DC' })),
+      onScroll: e => { const el = e.currentTarget; const w = el.firstElementChild ? el.firstElementChild.offsetWidth + 12 : 1; const i = Math.min(posts.length - 1, Math.round(el.scrollLeft / w)); if (i !== this.state.idx) this.setState({ idx: i }); }
+    };
+  }
+}</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* U.S. News & World Report — Base element defaults
+   Applies brand type + color foundations to raw HTML. */
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--body2-size);
+  line-height: var(--body2-line);
+  color: var(--text-primary);
+  background: var(--background-default);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h1 { font-size: var(--h1-size); line-height: var(--h1-line); }
+h2 { font-size: var(--h2-size); line-height: var(--h2-line); }
+h3 { font-size: var(--h3-size); line-height: var(--h3-line); }
+h4 { font-size: var(--h4-size); line-height: var(--h4-line); }
+h5 { font-size: var(--h5-size); line-height: var(--h5-line); }
+h6 { font-size: var(--h6-size); line-height: var(--h6-line); }
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Utility text roles */
+.usn-kicker {
+  font-family: var(--font-body);
+  font-size: var(--overline-size);
+  line-height: var(--overline-line);
+  letter-spacing: var(--overline-tracking);
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--text-kicker);
+}
+.usn-caption {
+  font-family: var(--font-body);
+  font-size: var(--caption-size);
+  line-height: var(--caption-line);
+  font-style: italic;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/base.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/styles.css">
+  <script src="_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/_ds_bundle.js"></script>
+  <style>body{margin:0;background:#F4F7F9;color:#2C303C;font-family:Roboto,sans-serif}a{color:#1263D3;text-decoration:none}a:hover{color:#0C489B;text-decoration:none}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:48px">
+  <div style="display:flex;flex-direction:column;gap:8px;max-width:820px">
+    <span style="font:600 13px Montserrat,sans-serif;letter-spacing:.08em;color:#1263D3">BC-5787 · SEPARATE SECTIONS</span>
+    <h1 style="margin:0;font:600 34px/1.2 Montserrat,sans-serif">Instagram and TikTok as separate components</h1>
+    <p style="margin:0;font:400 17px/1.55 Roboto,sans-serif;text-wrap:pretty">Three ways to show both networks without a switcher. All options place TikTok below or after Instagram. The combined switcher version is in <a href="Profile Admissions - TikTok.dc.html">Profile Admissions - TikTok</a>.</p>
+  </div>
+
+  <div style="background:#fff;border:1px solid #D3D7DC;border-radius:8px;padding:32px;max-width:1240px;display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:24px 48px">
+    <sc-for list="{{ answers }}" as="a" hint-placeholder-count="4">
+      <div style="display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:1px solid #D3D7DC">
+        <span style="font:600 17px/1.35 Montserrat,sans-serif">{{ a.q }}</span>
+        <span style="font:600 15px Roboto,sans-serif;color:#0C489B">{{ a.short }}</span>
+        <span style="font:400 15px/1.55 Roboto,sans-serif;text-wrap:pretty">{{ a.a }}</span>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+    <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+      <div id="{{ o.id }}" style="background:#fff;border:1px solid #D3D7DC;border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:24px;width:1300px;box-sizing:border-box">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;background:#2C303C;color:#fff;font:600 15px Montserrat,sans-serif;padding:6px 10px;border-radius:4px">{{ o.id }}</span>
+          <div style="display:flex;flex-direction:column;gap:6px;max-width:900px">
+            <span style="font:600 22px Montserrat,sans-serif">{{ o.title }}</span>
+            <span style="font:400 15px/1.55 Roboto,sans-serif;color:#515767;text-wrap:pretty">{{ o.note }}</span>
+            <div style="display:flex;gap:24px;flex-wrap:wrap;font:400 14px/1.5 Roboto,sans-serif;margin-top:4px">
+              <span><strong style="font-weight:500;color:#068448">Pros:</strong> {{ o.pros }}</span>
+              <span><strong style="font-weight:500;color:#B92523">Cons:</strong> {{ o.cons }}</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:48px;align-items:flex-start">
+          <div style="flex:0 0 820px;display:flex;flex-direction:column;gap:8px">
+            <span style="font:500 13px Roboto,sans-serif;color:#515767">Desktop · main column 820px</span>
+            <div style="border:1px dashed #D3D7DC;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:32px">
+              <span style="font:600 28px Montserrat,sans-serif">Campus Life</span>
+              <div style="height:56px;border-radius:8px;background:#F4F7F9;display:flex;align-items:center;padding:0 16px;font:400 13px Roboto,sans-serif;color:#515767">Housing and Dorms · Student Activities (unchanged)</div>
+              <sc-if value="{{ o.isStack }}" hint-placeholder-val="{{ false }}">
+                <dc-import name="SocialFeed" networks="Instagram only" hint-size="100%,520px"></dc-import>
+                <div style="height:1px;background:#D3D7DC"></div>
+                <dc-import name="SocialFeed" networks="TikTok only" compact="{{ o.ttCompact }}" count="{{ o.ttCount }}" hint-size="100%,520px"></dc-import>
+              </sc-if>
+              <sc-if value="{{ o.isSide }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px">
+                  <div style="min-width:0;padding-right:24px;border-right:1px solid #D3D7DC"><dc-import name="SocialFeed" networks="Instagram only" compact="{{ true }}" count="{{ 2 }}" hint-size="100%,300px"></dc-import></div>
+                  <div style="min-width:0"><dc-import name="SocialFeed" networks="TikTok only" compact="{{ true }}" count="{{ 2 }}" hint-size="100%,300px"></dc-import></div>
+                </div>
+              </sc-if>
+              <div style="height:40px;border-radius:8px;background:#F4F7F9;display:flex;align-items:center;padding:0 16px;font:400 13px Roboto,sans-serif;color:#515767">After College ↓</div>
+            </div>
+          </div>
+          <div style="flex:0 0 375px;display:flex;flex-direction:column;gap:8px">
+            <span style="font:500 13px Roboto,sans-serif;color:#515767">Mobile · 375px</span>
+            <div style="width:375px;box-sizing:border-box;border:1px solid #D3D7DC;border-radius:16px;padding:24px 16px;overflow:hidden;display:flex;flex-direction:column;gap:24px">
+              <span style="font:600 24px Montserrat,sans-serif">Campus Life</span>
+              <dc-import name="SocialFeed" networks="Instagram only" mobile="{{ true }}" hint-size="100%,520px"></dc-import>
+              <div style="height:1px;background:#D3D7DC"></div>
+              <dc-import name="SocialFeed" networks="TikTok only" mobile="{{ true }}" count="{{ o.ttCount }}" hint-size="100%,520px"></dc-import>
+              <span style="font:400 13px/1.5 Roboto,sans-serif;color:#515767">{{ o.mobileNote }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      answers: [
+        { q: 'Should TikTok appear above or below Instagram?', short: 'Below.', a: 'Instagram is the established component and more schools have it connected, so it keeps its current position. TikTok follows as the newer add-on. This also means Instagram-only profiles look exactly as they do today.' },
+        { q: 'Is it too visually heavy to stack two separate social components?', short: 'Yes, at full size.', a: 'Two full 3-card rows with repeated headers roughly double the section height and show six image-led cards back to back, which pushes After College and Reviews further down. Stacking only works if the second component is reduced (option 1b) or both share one row (1c).' },
+        { q: 'Should we create a combined "Socials" section?', short: 'Yes, as the recommended default.', a: 'A switcher keeps the current Instagram footprint and treats both networks equally. If product wants both visible without a click, use 1c: the two networks sit side by side with two cards each, in less height than today\'s Instagram block.' },
+        { q: 'How should this behave and scale on mobile?', short: 'Horizontal carousels, never a vertical card stack.', a: 'Each network is one row of swipeable cards at 80% width with dots. On mobile all separate options collapse to the same pattern: Instagram carousel, then TikTok carousel, each with a compact account row. Side-by-side is not possible at 375px.' }
+      ],
+      options: [
+        { id: '1a', title: 'Stacked, equal weight', isStack: true, isSide: false, ttCompact: false, ttCount: 3,
+          note: 'Instagram as today, TikTok below it as an identical copy of the component. Simplest to build: the same component rendered twice.',
+          pros: 'No new pattern; each network fully visible.', cons: 'Heaviest option; six large cards and two headers.',
+          mobileNote: 'Two full carousels stacked. Each is one card tall, so total height stays manageable.' },
+        { id: '1b', title: 'Stacked, TikTok as a compact strip', isStack: true, isSide: false, ttCompact: true, ttCount: 4,
+          note: 'Instagram unchanged. TikTok below as a lighter row: compact account header and four covers with view counts, no captions. Reads like a video strip rather than a second feed.',
+          pros: 'Instagram untouched; TikTok adds about half the height of a full component.', cons: 'Networks get unequal weight; no captions on TikTok.',
+          mobileNote: 'Same as 1a on mobile; the TikTok carousel shows four covers.' },
+        { id: '1c', title: 'Side by side, two cards each', isStack: false, isSide: true, ttCompact: true, ttCount: 3,
+          note: 'Instagram on the left, TikTok on the right, each with a compact account header and two covers. Both networks visible at once without a click.',
+          pros: 'Shorter than today\'s Instagram block; both networks equal and visible.', cons: 'Only two posts each; small cards; new layout to build.',
+          mobileNote: 'Columns stack: Instagram carousel, then TikTok carousel.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
