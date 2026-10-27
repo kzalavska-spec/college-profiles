@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School Socials Demo</title>
+<link rel="stylesheet" href="../../../project/_ds/m-u-i-current-u-s-news-design-system-740152ae-4cf8-4805-9096-d1859c7a6281/styles.css">
+<link rel="stylesheet" href="../school-socials.css">
+<style>
+  body { background: #fff; }
+  .demo-controls {
+    display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;
+    padding: 12px 16px; border-bottom: 1px solid var(--usn-gray15);
+    background: var(--usn-gray05); font-size: 14px;
+  }
+  .demo-controls legend { font-weight: 500; float: left; margin-right: 8px; }
+  .demo-controls fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  .demo-controls label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+  /* Stand-in for the profile page: main column 776px. */
+  .demo-page { max-width: 776px; margin: 0 auto; padding: 40px 24px; display: flex; flex-direction: column; gap: 64px; }
+  .demo-section { display: flex; flex-direction: column; gap: 16px; }
+  .demo-section h2 { font-size: 34px; line-height: 1.2; }
+  .demo-box { height: 80px; border: 1px solid var(--usn-gray15); border-radius: 8px; background: var(--usn-gray05); }
+  .demo-link { font-weight: 500; }
+  @media (max-width: 767px) {
+    .demo-page { padding: 24px 16px 32px; gap: 48px; }
+    .demo-section { gap: 12px; }
+    .demo-section h2 { font-size: 26px; }
+    .demo-box { height: 56px; }
+  }
+</style>
+</head>
+<body>
+  <form class="demo-controls" id="controls">
+    <fieldset>
+      <legend>Demo state</legend>
+      <label><input type="radio" name="state" value="both" checked> Both connected</label>
+      <label><input type="radio" name="state" value="ig"> Instagram only</label>
+      <label><input type="radio" name="state" value="tt"> TikTok only</label>
+      <label><input type="radio" name="state" value="tt-error"> TikTok token expired</label>
+      <label><input type="radio" name="state" value="ig-few"> Instagram &lt; 3 posts</label>
+      <label><input type="radio" name="state" value="none"> Neither</label>
+    </fieldset>
+  </form>
+
+  <div class="demo-page">
+    <div class="demo-section">
+      <h2>Campus Life</h2>
+      <div class="demo-box"></div>
+      <a class="demo-link" href="#">See Full Campus Life Details »</a>
+    </div>
+
+    <div id="school-socials"></div>
+
+    <div class="demo-section">
+      <h2>After College</h2>
+      <div class="demo-box"></div>
+    </div>
+  </div>
+
+<script type="module">
+  import { mountSchoolSocials } from '../school-socials.js';
+  import { buildDemoData } from './data.js';
+
+  const slot = document.getElementById('school-socials');
+  const track = (category, action) => console.info('[GA]', category, action);
+
+  function render() {
+    const state = new FormData(document.getElementById('controls')).get('state');
+    mountSchoolSocials(slot, buildDemoData(state), { track });
+  }
+
+  document.getElementById('controls').addEventListener('change', render);
+  render();
+</script>
+</body>
+</html>

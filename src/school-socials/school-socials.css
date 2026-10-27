@@ -1,0 +1,328 @@
+/* School socials — Instagram + TikTok, stacked (BC-5787).
+   College profile, Campus Life tab. Built on U.S. News DS tokens; every
+   token has a literal fallback so the file also works standalone. */
+
+.ss {
+  --ss-black80: var(--usn-black80, #2C303C);
+  --ss-gray50: var(--usn-gray50, #515767);
+  --ss-gray15: var(--usn-gray15, #D3D7DC);
+  --ss-gray05: var(--usn-gray05, #F4F7F9);
+  --ss-white: var(--usn-white00, #FFFFFF);
+  --ss-blue50: var(--usn-blue50, #1263D3);
+  --ss-red50: var(--color-secondary, #CE2927);
+  --ss-red50-hover: var(--color-secondary-hover, #B12220);
+  --ss-font-heading: var(--font-heading, "Montserrat", sans-serif);
+  --ss-font-body: var(--font-body, "Roboto", sans-serif);
+  --ss-focus: var(--focus-ring-width, 3px) solid var(--focus-ring-color, #1263D3);
+  --ss-focus-offset: var(--focus-ring-offset, 2px);
+
+  /* Divider margin, above and below. */
+  --ss-divider-gap: 32px;
+  /* Page side padding on mobile; the carousel bleeds through it. */
+  --ss-gutter: 16px;
+
+  display: flex;
+  flex-direction: column;
+  color: var(--ss-black80);
+  font-family: var(--ss-font-body);
+  min-width: 0;
+}
+
+.ss__divider {
+  height: 1px;
+  margin: var(--ss-divider-gap) 0;
+  border: 0;
+  background: var(--ss-gray15);
+}
+
+/* ---- One network block ---- */
+
+.ss-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.ss-feed__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ss-feed__logo {
+  display: block;
+  flex: none;
+  width: 72px;
+  height: 72px;
+}
+
+.ss-feed__account {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ss-feed__avatar {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  box-sizing: border-box;
+  border: 1px solid var(--ss-gray15);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.ss-feed__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ss-feed__names {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ss-feed__handle {
+  font: 600 15px/1.3 var(--ss-font-heading);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ss-feed__name {
+  font: 400 14px/1.3 var(--ss-font-body);
+  color: var(--ss-gray50);
+}
+
+/* Follow: DS Button, contained secondary, medium. */
+.ss-follow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-1, 4px);
+  background: var(--ss-red50);
+  color: var(--ss-white);
+  font: 500 16px/1.4 var(--ss-font-body);
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .15s ease;
+}
+
+.ss-follow:hover {
+  background: var(--ss-red50-hover);
+  color: var(--ss-white);
+  text-decoration: none;
+}
+
+/* ---- Cards ---- */
+
+.ss-feed__track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ss-feed__item {
+  display: flex;
+  min-width: 0;
+}
+
+.ss-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--ss-gray15);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ss-white);
+  color: var(--ss-black80);
+  text-decoration: none;
+}
+
+.ss-card:hover {
+  color: var(--ss-black80);
+  text-decoration: none;
+}
+
+.ss-follow:focus,
+.ss-card:focus { outline: none; }
+
+.ss-follow:focus-visible,
+.ss-card:focus-visible {
+  outline: var(--ss-focus);
+  outline-offset: var(--ss-focus-offset);
+}
+
+.ss-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--ss-gray05);
+}
+
+.ss-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .15s ease;
+}
+
+.ss-card__views {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(44, 48, 60, .8);
+  color: #fff;
+  font: 500 12px/1.4 var(--ss-font-body);
+  pointer-events: none;
+}
+
+.ss-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  padding: 16px;
+}
+
+.ss-card__caption {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  font: 400 15px/1.5 var(--ss-font-body);
+}
+
+.ss-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font: 400 13px/1.4 var(--ss-font-body);
+  color: var(--ss-gray50);
+}
+
+.ss-card__icon {
+  display: block;
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.ss-feed__dots { display: none; }
+
+@media (hover: hover) and (min-width: 768px) {
+  .ss-card:hover .ss-card__media img { transform: scale(1.02); }
+}
+
+/* ---- Mobile ---- */
+
+@media (max-width: 767px) {
+  .ss { --ss-divider-gap: 24px; }
+
+  .ss-feed { gap: 0; }
+
+  .ss-feed__header {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .ss-feed__logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ss-feed__account {
+    flex: 1;
+    gap: 12px;
+  }
+
+  .ss-feed__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ss-feed__names { flex: 1; }
+  .ss-feed__handle { font-size: 14px; }
+  .ss-feed__name { font-size: 13px; }
+
+  /* DS Button, small. */
+  .ss-follow {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  /* Carousel bleeds to the screen edge; the 5px block padding keeps the
+     focus ring from being clipped by the scroller. */
+  .ss-feed__track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--ss-gutter);
+    scrollbar-width: none;
+    margin: -5px calc(-1 * var(--ss-gutter));
+    padding: 5px var(--ss-gutter);
+  }
+
+  .ss-feed__track::-webkit-scrollbar { display: none; }
+
+  .ss-feed__item {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+
+  .ss-card__body {
+    flex: 0 0 auto;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+
+  .ss-card__caption { font: 400 14px/1.45 var(--ss-font-body); }
+  .ss-card__meta { font-size: 12px; }
+  .ss-card__icon { display: none; }
+
+  .ss-feed__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .ss-feed__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ss-gray15);
+    transition: background .15s;
+  }
+
+  .ss-feed__dot.is-active { background: var(--ss-blue50); }
+}
